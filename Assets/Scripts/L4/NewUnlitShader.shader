@@ -24,8 +24,12 @@ Shader "Test/UnlitShader"
         ZTest Less   
         Cull Off
         ZWrite On
+
+        UsePass "Test/UnlitShader/MYPASS"
+
         Pass
         {
+            Name "MyPass"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -70,4 +74,5 @@ Shader "Test/UnlitShader"
             ENDCG
         }
     }
+
 }
