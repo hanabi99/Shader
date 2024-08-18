@@ -31,8 +31,8 @@ Shader "Test/UnlitShader"
         {
             Name "MyPass"
             CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
+            #pragma vertex vert // 顶点着色器 相关逻辑在vert函数中实现的
+            #pragma fragment frag//声明片元着色器 相关逻辑在frag函数中实现的
             // make fog work
             #pragma multi_compile_fog
 
