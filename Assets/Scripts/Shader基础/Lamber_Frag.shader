@@ -37,7 +37,9 @@ Shader "Unlit/Lamber_Frag"
             {
                 float3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
                 //lamber lighting
-                fixed3 color = _MainColor.rgb *  _LightColor0.rgb *  max(0,dot(lightDir,i.normal));
+                //fixed3 color = _MainColor.rgb *  _LightColor0.rgb *  max(0,dot(lightDir,i.normal));
+                //Half lamber lighting
+                fixed3 color = _MainColor.rgb *  _LightColor0.rgb * dot(lightDir,i.normal) * 0.5 + 0.3;
                 color = UNITY_LIGHTMODEL_AMBIENT.rgb + color;
                 return fixed4(color.rgb, 1);
             }
