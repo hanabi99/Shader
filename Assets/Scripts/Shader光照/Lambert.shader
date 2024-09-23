@@ -31,7 +31,7 @@ Shader "Unlit/Lambert"
                 v2f v2fData;
                 v2fData.vertex = UnityObjectToClipPos(v.vertex);
                 float3 normal = UnityObjectToWorldNormal(v.normal);
-                float3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
+                float3 lightDir = normalize(UnityWorldSpaceLightDir(v.vertex));
                 //lambert lighting
                 fixed3 color = _MainColor.rgb *  _LightColor0.rgb *  max(0,dot(lightDir,normal));
                 v2fData.color = UNITY_LIGHTMODEL_AMBIENT.rgb + color;

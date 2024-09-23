@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Phong
-  m_Shader: {fileID: 4800000, guid: e3efc515ead5c004992e791638d4ebd3, type: 3}
+  m_Name: BulinPhong
+  m_Shader: {fileID: 4800000, guid: 6654424c355c59d4fb92cbe8e5d2d89f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -66,7 +66,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 12.5
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -74,12 +74,13 @@ Material:
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SpecularNum: 7.8
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.9433962, g: 0.6452474, b: 0.6452474, a: 1}
-    - _Specular: {r: 0.8962264, g: 0.46925062, b: 0.46925062, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 0.4339623, g: 0.21493414, b: 0.21493414, a: 1}
   m_BuildTextureStacks: []
