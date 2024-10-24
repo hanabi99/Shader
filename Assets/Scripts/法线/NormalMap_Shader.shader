@@ -83,6 +83,7 @@ Shader "Unlit/NormalMap_Shader"
                 data.uv.zw = TRANSFORM_TEX(v.texcoord.xy, _BumpMap);
                 //副切线 叉乘切线有两条 通过×切线中的w确定哪一条
                 float3 binormal = cross(normalize(v.normal),normalize(v.tangent)) * v.tangent.w;
+                //父到子
                 float3x3 rotation = float3x3(
                     v.tangent.xyz
                     , binormal
@@ -95,18 +96,18 @@ Shader "Unlit/NormalMap_Shader"
             fixed4 frag (v2f i) : SV_Target
             {
                 //取出法线数据采样
-               float4 packNormal = tex2D(_BumpMap, i.uv.zw);
-               //逆运算
-               float3 tangentNormal = UnpackNormal(packNormal);
+                float4 packNormal = tex2D(_BumpMap, i.uv.zw);
+                //逆运算
+                float3 tangentNormal = UnpackNormal(packNormal);
 
-               tangentNormal = tangentNormal * _BumpScale;
+                tangentNormal = tangentNormal * _BumpScale;
 
                 //纹理颜色需要与漫反射材质颜色相乘
                 fixed3 albedo = tex2D(_MainTex, i.uv.xy).rgb * _MainColor.rgb;
                 //计算兰伯特光照颜色
-                fixed3 lambertColor = getLambertFColor(tangentNormal,albedo,i.light_dir);
+                fixed3 lambertColor = getLambertFColor(tangentNormal, albedo, i.light_dir);
                 //计算BlinnPhong式高光反射颜色
-                fixed3 specularColor = getSpecularColor(tangentNormal,i.light_dir,i.view_dir);
+                fixed3 specularColor = getSpecularColor(tangentNormal, i.light_dir, i.view_dir);
                 //物体表面光照颜色 = 环境光颜色 * albedo + 兰伯特光照模型所得颜色 + Phong式高光反射光照模型所得颜色
                 fixed3 blinnPhongColor = (UNITY_LIGHTMODEL_AMBIENT.rgb * albedo) + lambertColor + specularColor; 
 
