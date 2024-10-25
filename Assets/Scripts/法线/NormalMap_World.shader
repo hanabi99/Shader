@@ -63,7 +63,7 @@ Shader "Unlit/NormalMap_World"
                                          world_tangent.z, world_binormal.z, world_normal.z);
                return data;
             }
-
+            
             fixed4 frag (v2f i) : SV_Target
             {
                 float3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
@@ -74,14 +74,15 @@ Shader "Unlit/NormalMap_World"
                 //逆运算
                 float3 tangentNormal = UnpackNormal(packNormal);
 
-                tangentNormal = tangentNormal * _BumpScale;
+                tangentNormal.xy *= _BumpScale;
+                tangentNormal.z = sqrt(1.0 - saturate(dot(tangentNormal.xy, tangentNormal.xy)));
                 //将法线转换为世界空间
                 float3 worldNormal = mul(i.rotation, tangentNormal);
 
                 //纹理颜色需要与漫反射材质颜色相乘
                 fixed3 albedo = tex2D(_MainTex, i.uv.xy).rgb * _MainColor.rgb;
                 //兰伯特
-                fixed3 lambertcolor = _LightColor0.rgb * albedo.rgb * max(0, dot(worldNormal, lightDir));
+                fixed3 lambertcolor = _LightColor0.rgb * albedo.rgb * max(0, dot(worldNormal, normalize(lightDir)));
                 //半角
                 float3 half_a = normalize(viewDir + lightDir);
                 //bulin高光 = 光源颜色 * 材质高光反射颜色 * pow(max(0, dot(视角单位向量, 光的反射单位向量)), 光泽度)

@@ -99,8 +99,9 @@ Shader "Unlit/NormalMap_Shader"
                 float4 packNormal = tex2D(_BumpMap, i.uv.zw);
                 //逆运算
                 float3 tangentNormal = UnpackNormal(packNormal);
-
-                tangentNormal = tangentNormal * _BumpScale;
+                
+                tangentNormal.xy *= _BumpScale;
+                tangentNormal.z = sqrt(1.0 - saturate(dot(tangentNormal.xy, tangentNormal.xy)));
 
                 //纹理颜色需要与漫反射材质颜色相乘
                 fixed3 albedo = tex2D(_MainTex, i.uv.xy).rgb * _MainColor.rgb;
