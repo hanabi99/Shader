@@ -1,5 +1,6 @@
 Shader "Unlit/Gradient_Normal"
 {
+    //渐变纹理
     Properties
     {
         _MainColor("MainColor", Color) = (1,1,1,1)
