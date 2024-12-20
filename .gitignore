@@ -1,0 +1,8 @@
+﻿Library
+Assembly-CSharp.csproj
+*.csproj
+Shader.sln
+Temp
+obj
+.idea
+Logs
