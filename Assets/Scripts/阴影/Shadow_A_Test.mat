@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LightAtten
-  m_Shader: {fileID: 4800000, guid: daad64c7576d19547a7ced937a0e9982, type: 3}
+  m_Name: Shadow_A_Test
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -74,16 +74,10 @@ Material:
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularNum: 13.77
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - specular_num: 2.84
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - main_color: {r: 1, g: 1, b: 1, a: 1}
-    - specular_color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
