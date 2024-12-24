@@ -258,5 +258,5 @@ Shader "Unlit/Lesson64_ForwardLighting"
             ENDCG
         }
     }
-    //Fallback "Specular"
+    Fallback "Specular"
 }
