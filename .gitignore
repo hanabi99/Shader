@@ -1,7 +1,8 @@
 ﻿Library
-Logs
-ProjectSettings
-UserSettings
-Temp
+Assembly-CSharp.csproj
 *.csproj
 Shader.sln
+Temp
+obj
+.idea
+Logs
