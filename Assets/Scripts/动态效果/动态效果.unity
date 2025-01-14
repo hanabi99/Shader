@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 528725774}
   - component: {fileID: 528725773}
   - component: {fileID: 528725772}
+  - component: {fileID: 528725775}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -215,6 +216,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &528725775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528725771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ad350ff846db441865b89e8797d7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 794d223ac50d9554ba5562b147082fd5, type: 2}
 --- !u!1 &829322374
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +239,6 @@ GameObject:
   m_Component:
   - component: {fileID: 829322376}
   - component: {fileID: 829322375}
-  - component: {fileID: 829322377}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -310,18 +323,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &829322377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829322374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9225c2bfad491b441944b1a8ece00521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &952024846
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +335,7 @@ GameObject:
   - component: {fileID: 952024849}
   - component: {fileID: 952024848}
   - component: {fileID: 952024847}
+  - component: {fileID: 952024851}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -383,7 +385,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 72b859de546fa814a8ed1128759d6b98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -428,6 +430,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &952024851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952024846}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ad350ff846db441865b89e8797d7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 72b859de546fa814a8ed1128759d6b98, type: 2}
 --- !u!1 &1107349050
 GameObject:
   m_ObjectHideFlags: 0
