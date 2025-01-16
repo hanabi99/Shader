@@ -3,11 +3,11 @@ Shader "Unlit/Lesson103_BrightnessSaturationContrast"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        //ÁÁ¶È±äÁ¿
+        //ï¿½ï¿½ï¿½È±ï¿½ï¿½ï¿½
         _Brightness("Brightness", Float) = 1
-        //±¥ºÍ¶È±äÁ¿
+        //ï¿½ï¿½ï¿½Í¶È±ï¿½ï¿½ï¿½
         _Saturation("Saturation", Float) = 1
-        //¶Ô±È¶È±äÁ¿
+        //ï¿½Ô±È¶È±ï¿½ï¿½ï¿½
         _Contrast("Contrast", Float) = 1
     }
     SubShader
@@ -48,18 +48,18 @@ Shader "Unlit/Lesson103_BrightnessSaturationContrast"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                //´Ó²¶»ñµÄÖ÷ÎÆÀíÖÐ²ÉÑù 
+                //ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ 
                 fixed4 renderTexColor = tex2D(_MainTex, i.uv);
 
-                //ÁÁ¶È¼ÆËã
+                //ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½
                 fixed3 finalColor = renderTexColor.rgb * _Brightness;
 
-                //±¥ºÍ¶È¼ÆËã
-                fixed L = 0.2126*finalColor.r + 0.7152*finalColor.g + 0.722*finalColor.b;
+                //ï¿½ï¿½ï¿½Í¶È¼ï¿½ï¿½ï¿½
+                fixed L = 0.2126*finalColor.r + 0.7152*finalColor.g + 0.0722*finalColor.b;
                 fixed3 LColor = fixed3(L,L,L);
                 finalColor = lerp(LColor, finalColor, _Saturation);
 
-                //¶Ô±È¶È¼ÆËã
+                //ï¿½Ô±È¶È¼ï¿½ï¿½ï¿½
                 fixed3 avgColor = fixed3(0.5, 0.5, 0.5);
                 finalColor = lerp(avgColor, finalColor, _Contrast);
 

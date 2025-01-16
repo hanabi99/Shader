@@ -12,7 +12,7 @@ public class Lesson103_BrightnessSaturationContrast : PostEffectBase
     public float Contrast = 1;
 
     /// <summary>
-    /// ¸üĞÂÏà¹ØÊôĞÔ
+    /// æ›´æ–°ç›¸å…³å±æ€§
     /// </summary>
     protected override void UpdateProperty()
     {
