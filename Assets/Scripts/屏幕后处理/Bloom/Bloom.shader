@@ -64,7 +64,7 @@ Shader "Unlit/_Bloom"
             ENDCG
         }
         //复用高斯模糊
-        UsePass "Unlit/高斯Base/GAUSSIAN_BLUR_HORIZONTAL"
-        UsePass "Unlit/高斯Base/GAUSSIAN_BLUR_VERTICAL"
+        UsePass "Unlit/GaoSi/GAUSSIAN_BLUR_HORIZONTAL"
+        UsePass "Unlit/GaoSi/GAUSSIAN_BLUR_VERTICAL"
     }
 }

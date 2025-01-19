@@ -1,4 +1,4 @@
-Shader "Unlit/高斯Base"
+Shader "Unlit/GaoSi"
 {
     Properties
     {

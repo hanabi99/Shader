@@ -24,7 +24,7 @@ public class Bloom : PostEffectBase
             int rtH = source.height / downSample;
 
             //渲染纹理缓冲区
-            RenderTexture buffer = RenderTexture.GetTemporary(rtW, rtH, 0);
+            RenderTexture buffer = RenderTexture.GetTemporary(rtW, rtH, 16);
             //采用双线性过滤模式来缩放 可以让缩放效果更平滑
             buffer.filterMode = FilterMode.Bilinear;
             //第一步 提取处理 用我们的提取Pass去得到对应的亮度信息 存入到缓冲区纹理中
@@ -36,10 +36,10 @@ public class Bloom : PostEffectBase
             {
                 //如果想要模糊半径影响模糊想过更强烈 更平滑
                 //一般可以在我们的迭代中进行设置 相当于每次迭代处理高斯模糊时 都在增加我们的间隔距离
-                material.SetFloat("_BlurSpread", 1 + i * blurSpread);
+                material.SetFloat("_BlurInterval", 1 + i * blurSpread);
 
                 //又声明一个新的缓冲区
-                RenderTexture buffer1 = RenderTexture.GetTemporary(rtW, rtH, 0);
+                RenderTexture buffer1 = RenderTexture.GetTemporary(rtW, rtH, 16);
 
                 //因为我们需要用两个Pass 处理图像两次 
                 //进行第一次 水平卷积计算
@@ -51,7 +51,7 @@ public class Bloom : PostEffectBase
                 buffer1 = RenderTexture.GetTemporary(rtW, rtH, 0);
                 //进行第二次 垂直卷积计算
                 Graphics.Blit(buffer, buffer1, material, 2);//在Color1的基础上乘上Color2 得到最终的高斯模糊计算结果
-                                                            //释放缓存区
+                
                 RenderTexture.ReleaseTemporary(buffer);
                 //buffer和buffer1指向的都是这一次高斯模糊处理的结果
                 buffer = buffer1;
