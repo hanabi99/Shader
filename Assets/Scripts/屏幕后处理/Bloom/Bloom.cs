@@ -36,7 +36,7 @@ public class Bloom : PostEffectBase
             {
                 //如果想要模糊半径影响模糊想过更强烈 更平滑
                 //一般可以在我们的迭代中进行设置 相当于每次迭代处理高斯模糊时 都在增加我们的间隔距离
-                material.SetFloat("_BlurInterval", 1 + i * blurSpread);
+                material.SetFloat("_BlurInterval", 1 + iterations * blurSpread);
 
                 //又声明一个新的缓冲区
                 RenderTexture buffer1 = RenderTexture.GetTemporary(rtW, rtH, 16);
@@ -63,6 +63,8 @@ public class Bloom : PostEffectBase
             //测试 看到提取效果
             Graphics.Blit(buffer, destination);
 
+            //不置空会报错
+            material.SetTexture("_Bloom", null);
             RenderTexture.ReleaseTemporary(buffer);
         }
         else

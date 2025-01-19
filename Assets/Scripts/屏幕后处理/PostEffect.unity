@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa90268417c803b429baeaa824d89005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: c03b90cc6a2ebdb459ba27293600e298, type: 3}
+  shader: {fileID: 4800000, guid: 18f597c0405886940b9372bf6ab6de4f, type: 3}
   downSample: 1
   ExcuteCount: 1
   _BlurInterval: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   luminanceThreshold: 0
   downSample: 1
   iterations: 1
-  blurSpread: 0.11
+  blurSpread: 0
 --- !u!1 &1910699213
 GameObject:
   m_ObjectHideFlags: 0
