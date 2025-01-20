@@ -61,8 +61,8 @@ public class Bloom : PostEffectBase
             material.SetTexture("_Bloom", buffer);
 
             //测试 看到提取效果
-            Graphics.Blit(buffer, destination);
-
+            //Graphics.Blit(buffer, destination);
+            Graphics.Blit(buffer, destination, material, 3);
             //不置空会报错
             material.SetTexture("_Bloom", null);
             RenderTexture.ReleaseTemporary(buffer);
