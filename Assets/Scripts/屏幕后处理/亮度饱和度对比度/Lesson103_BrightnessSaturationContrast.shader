@@ -3,11 +3,11 @@ Shader "Unlit/Lesson103_BrightnessSaturationContrast"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        //���ȱ���
+        //亮度变量
         _Brightness("Brightness", Float) = 1
-        //���Ͷȱ���
+         //饱和度变量
         _Saturation("Saturation", Float) = 1
-        //�Աȶȱ���
+         //对比度变量
         _Contrast("Contrast", Float) = 1
     }
     SubShader
@@ -48,18 +48,18 @@ Shader "Unlit/Lesson103_BrightnessSaturationContrast"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                //�Ӳ�����������в��� 
+                 //从捕获的主纹理中采样 
                 fixed4 renderTexColor = tex2D(_MainTex, i.uv);
 
-                //���ȼ���
+                 //亮度计算
                 fixed3 finalColor = renderTexColor.rgb * _Brightness;
 
-                //���Ͷȼ���
+                 //饱和度计算
                 fixed L = 0.2126*finalColor.r + 0.7152*finalColor.g + 0.0722*finalColor.b;
                 fixed3 LColor = fixed3(L,L,L);
                 finalColor = lerp(LColor, finalColor, _Saturation);
 
-                //�Աȶȼ���
+                //对比度计算
                 fixed3 avgColor = fixed3(0.5, 0.5, 0.5);
                 finalColor = lerp(avgColor, finalColor, _Contrast);
 
