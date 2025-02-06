@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogColor: {r: 0.41808474, g: 0.58691895, b: 0.6037736, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 0.1
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 15.2
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -633,7 +633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483597676}
   m_LocalRotation: {x: 0, y: -0.9974408, z: 0, w: 0.0714974}
-  m_LocalPosition: {x: 7.32, y: 4.81, z: 9.51}
+  m_LocalPosition: {x: 7.4, y: 4.81, z: 9.5}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 1643615797}
   - component: {fileID: 1643615798}
   - component: {fileID: 1643615799}
+  - component: {fileID: 1643615800}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -668,7 +669,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643615793}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1643615795
 Camera:
   m_ObjectHideFlags: 0
@@ -727,14 +728,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643615793}
-  m_LocalRotation: {x: 0.03963615, y: 0.9567123, z: -0.1566614, w: 0.24204916}
-  m_LocalPosition: {x: 1.83, y: 7.06, z: 21.71}
+  m_LocalRotation: {x: 0.016891291, y: 0.9814511, z: -0.1607099, w: 0.10315466}
+  m_LocalPosition: {x: 3.19, y: 7.1, z: 22.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.599, y: 168, z: 0}
 --- !u!114 &1643615797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,7 +743,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643615793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ef6d6f8024c39543bfd04690349dc2b, type: 3}
   m_Name: 
@@ -775,6 +776,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 5c7ea8982708cc34796d961c041cfcc1, type: 3}
+--- !u!114 &1643615800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643615793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8316f34e2fb6342a3a10743110ee5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 877a8d68a96d00f4f87adcc737f071c5, type: 3}
+  blurSize: 1
 --- !u!1 &1771362798
 GameObject:
   m_ObjectHideFlags: 0

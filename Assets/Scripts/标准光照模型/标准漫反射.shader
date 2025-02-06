@@ -20,6 +20,8 @@ Shader "Unlit/标准漫反射"
             #pragma vertex vert
             #pragma fragment frag
             #pragma multi_compile_fwdbase
+            // make fog work
+            #pragma multi_compile_fog
             #include "UnityCG.cginc"
             #include "Lighting.cginc"
             #include  "AutoLight.cginc"
@@ -40,6 +42,7 @@ Shader "Unlit/标准漫反射"
                 float3 wpos : TEXCOORD1;
                 //切线到世界空间得变换矩阵
                 float3x3 rotation : TEXCOORD2;
+                UNITY_FOG_COORDS(5)
                 SHADOW_COORDS(10)
             };
 
@@ -59,6 +62,7 @@ Shader "Unlit/标准漫反射"
                                          world_tangent.y, world_binormal.y, world_normal.y,
                                          world_tangent.z, world_binormal.z, world_normal.z);
                 TRANSFER_SHADOW(data);
+                UNITY_TRANSFER_FOG(data,data.pos);
                return data;
             }
             
@@ -82,9 +86,10 @@ Shader "Unlit/标准漫反射"
                 //兰伯特
                 fixed3 lambertcolor = _LightColor0.rgb * albedo.rgb * max(0, dot(worldNormal, normalize(lightDir)));
                 
-                UNITY_LIGHT_ATTENUATION(atten,i,i.wpos)
+                UNITY_LIGHT_ATTENUATION(atten,i,i.wpos);
                 //bulinPhong
                 fixed3 blinnPhongColor = (UNITY_LIGHTMODEL_AMBIENT.rgb * albedo) + lambertcolor * atten;
+                UNITY_APPLY_FOG(i.fogCoord, blinnPhongColor);
                 return fixed4(blinnPhongColor.rgb, 1);
             }
             ENDCG
@@ -98,6 +103,8 @@ Shader "Unlit/标准漫反射"
             #pragma vertex vert
             #pragma fragment frag
             #pragma multi_compile_fwdadd_fullshadows
+            // make fog work
+            #pragma multi_compile_fog
             #include "UnityCG.cginc"
             #include "Lighting.cginc"
             #include  "AutoLight.cginc"
@@ -118,6 +125,7 @@ Shader "Unlit/标准漫反射"
                 float3 wpos : TEXCOORD1;
                 //切线到世界空间得变换矩阵
                 float3x3 rotation : TEXCOORD2;
+                UNITY_FOG_COORDS(5)
                 SHADOW_COORDS(10)
             };
 
@@ -137,6 +145,7 @@ Shader "Unlit/标准漫反射"
                                          world_tangent.y, world_binormal.y, world_normal.y,
                                          world_tangent.z, world_binormal.z, world_normal.z);
                 TRANSFER_SHADOW(data);
+                UNITY_TRANSFER_FOG(data,data.pos);
                return data;
             }
             
@@ -163,6 +172,7 @@ Shader "Unlit/标准漫反射"
                 UNITY_LIGHT_ATTENUATION(atten,i,i.wpos)
                 //bulinPhong
                 fixed3 blinnPhongColor = (UNITY_LIGHTMODEL_AMBIENT.rgb * albedo) + lambertcolor * atten;
+                UNITY_APPLY_FOG(i.fogCoord, blinnPhongColor);
                 return fixed4(blinnPhongColor.rgb, 1);
             }
             ENDCG

@@ -16,10 +16,7 @@ public class PostEffectBase : MonoBehaviour
         else
             Graphics.Blit(source, destination);
     }
-
-    /// <summary>
-    /// 更新材质球属性
-    /// </summary>
+    
     protected virtual void UpdateProperty()
     {
 

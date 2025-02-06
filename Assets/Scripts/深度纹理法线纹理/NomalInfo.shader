@@ -6,7 +6,14 @@ Shader "Unlit/NomalInfo"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags
+        {
+            "RenderType"="Opaque"
+        }
+        Cull Off
+        ZWrite Off
+        ZTest Always
+
 
         Pass
         {
@@ -15,7 +22,7 @@ Shader "Unlit/NomalInfo"
             #pragma fragment frag
 
             #include "UnityCG.cginc"
-            
+
 
             struct v2f
             {
@@ -27,7 +34,7 @@ Shader "Unlit/NomalInfo"
             float4 _MainTex_ST;
             sampler2D _CameraDepthNormalsTexture;
 
-            v2f vert (appdata_base v)
+            v2f vert(appdata_base v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
@@ -35,7 +42,7 @@ Shader "Unlit/NomalInfo"
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag(v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_CameraDepthNormalsTexture, i.uv);
                 float depth;

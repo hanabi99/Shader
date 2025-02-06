@@ -10,6 +10,9 @@ Shader "Unlit/深度纹理"
         {
             "RenderType"="Opaque"
         }
+        Cull Off
+        ZWrite Off
+        ZTest Always
 
         Pass
         {
@@ -47,5 +50,5 @@ Shader "Unlit/深度纹理"
             ENDCG
         }
     }
-Fallback Off
+    Fallback Off
 }
