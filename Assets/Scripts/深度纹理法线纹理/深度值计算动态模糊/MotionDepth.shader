@@ -57,7 +57,7 @@ Shader "Unlit/MotionDepth"
                 //裁剪空间下的一个组合坐标 把0~1范围变换到-1~1范围
                 //第一个点
                 float4 nowClipPos = float4(i.uv.x * 2 - 1, i.uv.y * 2 - 1, depth , 1);
-                //用裁剪空间到世界空间的变换矩阵 得到 世界空间下的带你
+                //用裁剪空间到世界空间的变换矩阵 得到 世界空间下的坐标
                 float4 worldPos = mul(_ClipToWorldMatrix, nowClipPos);
                 //透视除法
                 worldPos /= worldPos.w;
