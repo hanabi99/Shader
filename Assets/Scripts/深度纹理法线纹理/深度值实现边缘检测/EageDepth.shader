@@ -17,16 +17,13 @@ Shader "Unlit/EageDepth"
     }
     SubShader
     {
-        Tags
-        {
-            "RenderType"="Opaque"
-        }
+        ZTest Always
+        Cull Off
+        ZWrite Off
 
         Pass
         {
             CGPROGRAM
-            // Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
-            #pragma exclude_renderers d3d11 gles
             #pragma vertex vert
             #pragma fragment frag
             #include "UnityCG.cginc"
@@ -68,9 +65,9 @@ Shader "Unlit/EageDepth"
                 //如果差异不大 证明基本上在一个平面上 返回 1；否则返回0
                 int isSameNormal = (normalDiff.x + normalDiff.y) < 0.1;
                 //深度同理
-                float DepthDifference = abs(depth1 - depth2)  * _SensitivityDepth;
+                float DepthDifference = abs(depth1 - depth2) * _SensitivityDepth;
                 int isDepthSame = DepthDifference < 0.1 * depth1;
-                
+
                 return isSameNormal * isDepthSame ? 1 : 0;
             }
 
@@ -78,16 +75,16 @@ Shader "Unlit/EageDepth"
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                half uv = v.texcoord;
+                half2 uv = v.texcoord;
                 o.uv[0] = uv;
                 //left top
-                o.uv[1] = uv + v.texcoord.xy * half2(-1, 1) * _SampleDistance;
+                o.uv[1] = uv + _MainTex_TexelSize.xy * half2(-1, 1) * _SampleDistance;
                 //right bottom
-                o.uv[2] = uv + v.texcoord.xy * half2(1, -1) * _SampleDistance;
+                o.uv[2] = uv + _MainTex_TexelSize.xy * half2(1, -1) * _SampleDistance;
                 //right top
-                o.uv[3] = uv + v.texcoord.xy * half2(1, 1) * _SampleDistance;
+                o.uv[3] = uv + _MainTex_TexelSize.xy * half2(1, 1) * _SampleDistance;
                 //left bottom
-                o.uv[4] = uv + v.texcoord.xy * half2(-1, -1) * _SampleDistance;
+                o.uv[4] = uv + _MainTex_TexelSize.xy * half2(-1, -1) * _SampleDistance;
                 return o;
             }
 
@@ -100,7 +97,7 @@ Shader "Unlit/EageDepth"
                 half isSame = 1;
                 isSame *= CheckSame(TL, BR);
                 isSame *= CheckSame(TR, BL);
-                fixed4 withEdgeColor = lerp(_EdgeColor, tex2D(_MainTex,i.uv[0]),isSame);
+                fixed4 withEdgeColor = lerp(_EdgeColor, tex2D(_MainTex, i.uv[0]), isSame);
                 fixed4 onlyEdgeColor = lerp(_EdgeColor, _BackgroundColor, isSame);
                 fixed4 withEdgeOnly = lerp(withEdgeColor, onlyEdgeColor, _EdgeOnly);
 
