@@ -60,16 +60,4 @@ public class FogEffect : PostEffectBase
             material.SetMatrix("_RayMatrix", rayMatrix);
         }
     }
-
-    protected override void OnRenderImage(RenderTexture source, RenderTexture destination)
-    {
-        if (material != null)
-        {
-           
-        }
-        else
-        {
-            Graphics.Blit(source, destination);
-        }
-    }
 }

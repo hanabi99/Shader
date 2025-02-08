@@ -655,6 +655,8 @@ GameObject:
   - component: {fileID: 1643615798}
   - component: {fileID: 1643615799}
   - component: {fileID: 1643615800}
+  - component: {fileID: 1643615801}
+  - component: {fileID: 1643615802}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -729,7 +731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643615793}
   m_LocalRotation: {x: 0.016891291, y: 0.9814511, z: -0.1607099, w: 0.10315466}
-  m_LocalPosition: {x: 3.19, y: 7.1, z: 22.5}
+  m_LocalPosition: {x: 1.54, y: 9.78, z: 30.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -783,13 +785,49 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643615793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b8316f34e2fb6342a3a10743110ee5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 877a8d68a96d00f4f87adcc737f071c5, type: 3}
   blurSize: 1
+--- !u!114 &1643615801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643615793}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e5f91c83272fa4d8e443dbc2920b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 417cf11aaf948c74caeeef9ade66f8ae, type: 3}
+  m_FogColor: {r: 0.4180135, g: 0.5036606, b: 0.5377358, a: 1}
+  m_FogDensity: 1
+  m_FogStart: 1.08
+  m_FogEnd: 10.3
+--- !u!114 &1643615802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643615793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7540afb20aacacc42b04428e16189b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 40a355ae3db4bcf4abf8411850b2fcb9, type: 3}
+  edgeOnly: 0
+  edgeColor: {r: 0, g: 0, b: 0, a: 1}
+  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  sampleDistance: 1
+  sensitivityDepth: 1
+  sensitivityNormal: 1
 --- !u!1 &1771362798
 GameObject:
   m_ObjectHideFlags: 0
