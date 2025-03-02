@@ -16,6 +16,7 @@ Shader "Unlit/Kartoon"
     {
         Pass
         {
+            Name "OUTLINE"
             Cull Front
             CGPROGRAM
             #pragma vertex vert

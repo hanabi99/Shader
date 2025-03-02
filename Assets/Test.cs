@@ -11,6 +11,7 @@ public class Test : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(Application.dataPath);
         byte flags = 0; // 用一个字节存储8个bool值
 
         // 设置第3位为true（从0开始计数）
